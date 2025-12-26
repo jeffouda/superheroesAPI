@@ -1,0 +1,20 @@
+# Python bytecode (compiled files)
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+env/
+.env
+.venv/
+
+# Flask instance folder (often holds the local database)
+instance/
+
+# Database files (We generally don't commit the actual SQLite file)
+*.db
+*.sqlite3
+app.db
+
+# OS Metadata
+.DS_Store
