@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
-from sqlachemy.ext.associationproxy import association_proxy
+from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
 
 #Flask-SQLAlachemy to handle Naming COnventions(MetaData)
@@ -33,14 +33,14 @@ class Hero(db.Model,SerializerMixin):
     powers = association_proxy('hero_powers','power')
     
     
-    serialize_rules = (-hero_powers.hero)
+    serialize_rules = ('-hero_powers.hero',)
     
     def __repr__(self):
         return f'<Hero {self.name}>'
       
       
 #POWER
-class Power(db.model,SerializerMixin):
+class Power(db.Model,SerializerMixin):
     __tablename__ = 'powers'
     
     id = db.Column(db.Integer,primary_key=True) 
@@ -93,7 +93,7 @@ class HeroPower(db.Model, SerializerMixin):
     def validate_strength(self,key, strength):
         valid_strengths = ['Strong' ,'Weak', 'Average']
         if strength not in valid_strengths:
-            raise ValueError(f'Strength must be one of: {','.join(valid_strengths)}') 
+            raise ValueError(f"Strength must be one of: {','.join(valid_strengths)}") 
         return strength
       
     def __repr__(self):
