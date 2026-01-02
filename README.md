@@ -23,7 +23,7 @@ Jeff H Ouda.
 ### Installation
 1. Clone the Repository
 ```bash
-git clone <https://github.com/jeffouda/superheroesAPI>
+git clone < https://github.com/jeffouda/superheroesAPI >
 cd superheroes-api
 ```
 
